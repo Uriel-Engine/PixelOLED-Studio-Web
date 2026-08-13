@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#393b39">
+		<title>
+			PixelOLED Studio — Uriel Engine
+		</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<main class="studio" aria-label="PixelOLED Studio">
+			<header class="topbar">
+				<section class="connection">
+					<button id="connectButton" class="main-button">
+						Conectar
+					</button>
+					<i id="connectionLed" class="led" title="Sin conexión serial">
+					</i>
+					<select id="resolution" aria-label="Resolución OLED">
+						<option value="64">
+							128×64px
+						</option>
+						<option value="32">
+							128×32px
+						</option>
+					</select>
+				</section>
+				<section class="animation" aria-label="Animación">
+					<button id="playButton" class="icon-button large" title="Reproducir">
+						▶
+					</button>
+					<button id="deleteFrame" class="icon-button large" title="Borrar frame seleccionado">
+						×
+					</button>
+					<button class="frame-slot" data-frame="0" title="Guardar o cargar Frame 1">
+					</button>
+					<button class="frame-slot" data-frame="1" title="Guardar o cargar Frame 2">
+					</button>
+					<button class="frame-slot" data-frame="2" title="Guardar o cargar Frame 3">
+					</button>
+					<button class="frame-slot" data-frame="3" title="Guardar o cargar Frame 4">
+					</button>
+					<select id="animationDelay" aria-label="Intervalo de animación">
+						<option>
+							200 ms
+						</option>
+						<option selected>
+							250 ms
+						</option>
+						<option>
+							500 ms
+						</option>
+						<option>
+							1000 ms
+						</option>
+					</select>
+				</section>
+			</header>
+			<nav id="toolbar" class="toolbar" aria-label="Herramientas de dibujo">
+			</nav>
+			<section class="canvas-shell">
+				<canvas id="oledCanvas" width="1280" height="640" aria-label="Editor de matriz OLED">
+				</canvas>
+			</section>
+			<section class="bitmap-actions">
+				<label for="bitmapName">
+					Nombre
+				</label>
+				<input id="bitmapName" value="Ejemplo_PixelOLED_1" maxlength="16" autocomplete="off">
+				<button id="generateBitmap" class="main-button">
+					Generar Bitmap
+				</button>
+				<button id="generateSection" class="main-button">
+					Generar Sección
+				</button>
+				<button id="generateGif" class="main-button">
+					Generar GIF
+				</button>
+				<button id="copyBitmap" class="icon-button" title="Copiar">
+					⧉
+				</button>
+				<button id="loadBitmap" class="icon-button" title="Cargar Bitmap al Canvas">
+					↑
+				</button>
+			</section>
+			<textarea id="bitmapOutput" spellcheck="false">Click en el botón "Borrar" para iniciar</textarea>
+			<p id="status" role="status">
+				Sin conectar
+			</p>
+		</main>
+		<dialog id="messageDialog">
+			<p id="dialogText">
+			</p>
+			<button id="dialogClose" class="main-button">
+				Aceptar
+			</button>
+		</dialog>
+		<script src="fonts.js?v=20260812-2206">
+		</script>
+		<script src="app.js?v=20260812-2210">
+		</script>
+	</body>
+</html>
